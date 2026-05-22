@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../../../keystatic.config";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { photos, photosByCategory, type GalleryCategory } from "@/lib/images";
 import LightboxGallery from "@/components/LightboxGallery";
+import type { GalleryPhoto, GalleryCategory } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description:
     "Browse Sandy Horne's photography portfolio — birds, landscapes, flora, animals, and people across Australia.",
 };
+
+const reader = createReader(process.cwd(), keystaticConfig);
 
 const categories: { value: GalleryCategory | "all"; label: string }[] = [
   { value: "all", label: "All" },
@@ -18,10 +22,32 @@ const categories: { value: GalleryCategory | "all"; label: string }[] = [
   { value: "flora", label: "Flora" },
 ];
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const entries = await reader.collections.gallery.all();
+
+  const photos: GalleryPhoto[] = entries
+    .map((entry) => ({
+      id: entry.slug,
+      src: entry.entry.image ?? "",
+      width: 800,
+      height: 800,
+      alt: entry.entry.alt ?? entry.entry.title as string,
+      title: entry.entry.title as string,
+      category: entry.entry.category as GalleryCategory,
+      featured: entry.entry.featured ?? false,
+    }))
+    .filter((p) => p.src)
+    .sort((a, b) => {
+      const aOrder = (entries.find((e) => e.slug === a.id)?.entry.order ?? 0);
+      const bOrder = (entries.find((e) => e.slug === b.id)?.entry.order ?? 0);
+      return aOrder - bOrder;
+    });
+
+  const byCategory = (cat: GalleryCategory) =>
+    photos.filter((p) => p.category === cat);
+
   return (
     <div className="bg-[#f7f4ef] min-h-screen">
-      {/* Page Header */}
       <div className="pt-32 pb-14 px-6 text-center">
         <p className="text-[10px] tracking-[0.4em] uppercase font-sans text-[#4a7a3c] mb-3">
           Portfolio
@@ -33,7 +59,6 @@ export default function GalleryPage() {
         </p>
       </div>
 
-      {/* Tabs */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-24">
         <Tabs defaultValue="all">
           <TabsList className="flex flex-wrap justify-center gap-1 bg-transparent mb-12 h-auto">
@@ -55,7 +80,7 @@ export default function GalleryPage() {
           {(["birds", "people", "animals", "landscapes", "flora"] as GalleryCategory[]).map(
             (cat) => (
               <TabsContent key={cat} value={cat}>
-                <LightboxGallery photos={photosByCategory(cat)} />
+                <LightboxGallery photos={byCategory(cat)} />
               </TabsContent>
             )
           )}

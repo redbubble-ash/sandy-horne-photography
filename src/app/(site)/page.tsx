@@ -2,19 +2,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../keystatic.config";
-import { featuredPhotos } from "@/lib/images";
+import type { GalleryPhoto, GalleryCategory } from "@/lib/images";
+import LightboxGallery from "@/components/LightboxGallery";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function HomePage() {
-  const home = await reader.singletons.home.read();
+  const [home, galleryEntries] = await Promise.all([
+    reader.singletons.home.read(),
+    reader.collections.gallery.all(),
+  ]);
 
   const heroTagline =
     home?.heroTagline ??
     "Capturing Australia's wild birds and hidden landscapes through patience, light, and reverence for the natural world.";
   const quote = home?.quote ?? "The forest is my cathedral, the birds my choir.";
   const quoteAttribution = home?.quoteAttribution ?? "Sandy Horne";
+
+  const featuredPhotos: GalleryPhoto[] = galleryEntries
+    .filter((e) => e.entry.featured && e.entry.image)
+    .map((e) => ({
+      id: e.slug,
+      src: e.entry.image ?? "",
+      width: 800,
+      height: 800,
+      alt: e.entry.alt ?? e.entry.title as string,
+      title: e.entry.title as string,
+      category: e.entry.category as GalleryCategory,
+      featured: true,
+    }))
+    .slice(0, 12);
 
   return (
     <>
@@ -53,39 +71,27 @@ export default async function HomePage() {
       </section>
 
       {/* Featured Grid */}
-      <section className="bg-[#f7f4ef] py-20 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">Selected Work</p>
-            <h2 className="font-serif text-4xl lg:text-5xl text-[#1e3520]">From the Field</h2>
-          </div>
-          <div className="masonry">
-            {featuredPhotos.map((photo) => (
-              <Link key={photo.id} href="/gallery" className="masonry-item block group relative overflow-hidden cursor-pointer">
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-[#1e3520]/0 group-hover:bg-[#1e3520]/50 transition-all duration-500 flex items-end">
-                  <div className="p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                    <p className="font-serif text-lg text-[#f7f4ef]">{photo.title}</p>
-                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#f7f4ef]/60 font-sans mt-1">{photo.category}</p>
-                  </div>
-                </div>
+      {featuredPhotos.length > 0 && (
+        <section className="bg-[#f7f4ef] py-20 px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">
+                Selected Work
+              </p>
+              <h2 className="font-serif text-4xl lg:text-5xl text-[#1e3520]">From the Field</h2>
+            </div>
+            <LightboxGallery photos={featuredPhotos} />
+            <div className="text-center mt-14">
+              <Link
+                href="/gallery"
+                className="inline-block bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300"
+              >
+                View Full Gallery
               </Link>
-            ))}
+            </div>
           </div>
-          <div className="text-center mt-14">
-            <Link href="/gallery" className="inline-block bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300">
-              View Full Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Quote Strip */}
       <section className="bg-[#1e3520] py-24 px-6">
@@ -95,7 +101,9 @@ export default async function HomePage() {
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="h-px w-12 bg-[#4a7a3c]" />
-            <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#f7f4ef]/40">{quoteAttribution}</p>
+            <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#f7f4ef]/40">
+              {quoteAttribution}
+            </p>
             <div className="h-px w-12 bg-[#4a7a3c]" />
           </div>
         </div>

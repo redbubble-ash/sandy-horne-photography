@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  photos,
-  photosByCategory,
-  type GalleryCategory,
-  type GalleryPhoto,
-} from "@/lib/images";
+import { photos, photosByCategory, type GalleryCategory } from "@/lib/images";
+import LightboxGallery from "@/components/LightboxGallery";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -22,33 +17,6 @@ const categories: { value: GalleryCategory | "all"; label: string }[] = [
   { value: "landscapes", label: "Landscapes" },
   { value: "flora", label: "Flora" },
 ];
-
-function PhotoGrid({ items }: { items: GalleryPhoto[] }) {
-  return (
-    <div className="masonry">
-      {items.map((photo) => (
-        <div
-          key={photo.id}
-          className="masonry-item group relative overflow-hidden cursor-zoom-in"
-        >
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
-            className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-[#1e3520]/0 group-hover:bg-[#1e3520]/50 transition-all duration-500 flex items-end pointer-events-none">
-            <div className="p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-              <p className="font-serif text-base text-[#f7f4ef]">{photo.title}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export default function GalleryPage() {
   return (
@@ -81,13 +49,13 @@ export default function GalleryPage() {
           </TabsList>
 
           <TabsContent value="all">
-            <PhotoGrid items={photos} />
+            <LightboxGallery photos={photos} />
           </TabsContent>
 
           {(["birds", "people", "animals", "landscapes", "flora"] as GalleryCategory[]).map(
             (cat) => (
               <TabsContent key={cat} value={cat}>
-                <PhotoGrid items={photosByCategory(cat)} />
+                <LightboxGallery photos={photosByCategory(cat)} />
               </TabsContent>
             )
           )}

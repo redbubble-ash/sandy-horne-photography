@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -22,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Sandy Horne Photography",
   },
   description:
-    "Sandy Horne is an Australian nature photographer specialising in birds, wildlife, and landscapes. Based in Australia.",
+    "Sandy Horne is an Australian nature photographer specialising in birds, wildlife, and landscapes.",
   metadataBase: new URL("https://sandyhornephoto.com"),
   openGraph: {
     title: "Sandy Horne Photography",
@@ -49,11 +47,7 @@ export default function RootLayout({
       lang="en-AU"
       className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

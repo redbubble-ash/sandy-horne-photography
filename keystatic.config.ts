@@ -1,15 +1,13 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 
 export default config({
-  storage: process.env.KEYSTATIC_GITHUB_CLIENT_ID
-    ? {
-        kind: "github",
-        repo: {
-          owner: "redbubble-ash",
-          name: "sandy-horne-photography",
-        },
-      }
-    : { kind: "local" },
+  storage: {
+    kind: "github",
+    repo: {
+      owner: "redbubble-ash",
+      name: "sandy-horne-photography",
+    },
+  },
 
   ui: {
     brand: { name: "Sandy Horne Photography" },

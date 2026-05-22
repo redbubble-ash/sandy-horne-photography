@@ -1,12 +1,21 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config";
 
-export default function Footer() {
+const reader = createReader(process.cwd(), keystaticConfig);
+
+export default async function Footer() {
+  const settings = await reader.singletons.settings.read();
+  const email = settings?.email ?? "hello@sandyhornephoto.com";
+  const instagram = settings?.instagram ?? "sandyhornephoto";
+  const facebook = settings?.facebook ?? "https://facebook.com/sandyhornephoto";
+  const location = settings?.location ?? "Australia";
+
   return (
     <footer className="bg-[#1e3520] text-[#f7f4ef]/80">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Brand */}
         <div>
           <p className="font-serif text-xl text-[#f7f4ef] mb-1 leading-none">Sandy Horne</p>
           <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#f7f4ef]/40 mb-5">
@@ -17,65 +26,39 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Quick Links */}
         <div>
           <h4 className="text-[10px] tracking-[0.25em] uppercase font-sans font-semibold text-[#f7f4ef]/40 mb-5">
             Explore
           </h4>
           <ul className="space-y-3 text-sm">
-            {(
-              [
-                ["Home", "/"],
-                ["Gallery", "/gallery"],
-                ["About", "/about"],
-                ["Contact", "/contact"],
-              ] as [string, string][]
-            ).map(([label, href]) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {([["Home", "/"], ["Gallery", "/gallery"], ["About", "/about"], ["Contact", "/contact"]] as [string, string][]).map(
+              ([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
-        {/* Social + Contact */}
         <div>
           <h4 className="text-[10px] tracking-[0.25em] uppercase font-sans font-semibold text-[#f7f4ef]/40 mb-5">
             Connect
           </h4>
           <div className="flex gap-4 mb-6">
-            <a
-              href="https://instagram.com/sandyhornephoto"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors"
-            >
+            <a href={`https://instagram.com/${instagram}`} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
               <InstagramIcon size={20} />
             </a>
-            <a
-              href="https://facebook.com/sandyhornephoto"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors"
-            >
+            <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
               <FacebookIcon size={20} />
             </a>
-            <a
-              href="mailto:hello@sandyhornephoto.com"
-              aria-label="Email Sandy"
-              className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors"
-            >
+            <a href={`mailto:${email}`} aria-label="Email Sandy" className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
               <Mail size={20} />
             </a>
           </div>
-          <p className="text-xs text-[#f7f4ef]/30">Based in Australia</p>
+          <p className="text-xs text-[#f7f4ef]/30">Based in {location}</p>
           <p className="text-xs text-[#f7f4ef]/30 mt-1">sandyhornephoto.com</p>
         </div>
       </div>

@@ -1,0 +1,30 @@
+How the Website Was Built (https://sandyhornephoto.com)
+
+Domain (https://dash.cloudflare.com/32427baaed6ca1c723c410dd4095de18/sandyhornephoto.com)
+Registered sandyhornephoto.com through Cloudflare
+DNS records pointed to Vercel from Cloudflare dashboard
+
+Hosting
+Hosted on Vercel (free tier)
+Connected to GitHub — every time code is pushed, Vercel automatically rebuilds and redeploys the site
+
+Code Storage
+Source code stored on GitHub at github.com/redbubble-ash/sandy-horne-photography
+Changes pushed via Git from local machine
+
+Website Framework
+Built with Next.js — a modern React framework
+Styled with Tailwind CSS
+
+Content Management (https://sandyhornephoto.com/keystatic)
+Keystatic CMS — allows editing website content without touching code
+Login at sandyhornephoto.com/keystatic using a GitHub account
+Changes save to GitHub automatically, site updates within ~30 seconds
+
+Images
+Sandy's real bird and profile photos stored in the project
+Placeholder images used for gallery categories not yet photographed
+
+Development (https://vercel.com/redbubble-ashs-projects/sandy-horne-photo/deployments)
+Built and tested locally on Windows
+Deployed live via Vercel with a single git push

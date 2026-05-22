@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   },
   description:
     "Sandy Horne is an Australian nature photographer specialising in birds, wildlife, and landscapes. Based in Australia.",
-  metadataBase: new URL("https://sandyhornephoto.com.au"),
+  metadataBase: new URL("https://sandyhornephoto.com"),
   openGraph: {
     title: "Sandy Horne Photography",
     description: "Australian Bird & Nature Photographer",
-    url: "https://sandyhornephoto.com.au",
+    url: "https://sandyhornephoto.com",
     siteName: "Sandy Horne Photography",
     locale: "en_AU",
     type: "website",

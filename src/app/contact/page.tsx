@@ -44,10 +44,10 @@ export default function ContactPage() {
               <div className="flex items-start gap-3">
                 <Mail size={16} className="mt-0.5 text-[#4a7a3c] shrink-0" />
                 <a
-                  href="mailto:hello@sandyhornephoto.com.au"
+                  href="mailto:hello@sandyhornephoto.com"
                   className="text-sm text-[#3a4e3c] font-sans hover:text-[#1e3520] transition-colors break-all"
                 >
-                  hello@sandyhornephoto.com.au
+                  hello@sandyhornephoto.com
                 </a>
               </div>
               <div className="flex items-start gap-3">

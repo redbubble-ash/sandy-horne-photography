@@ -68,7 +68,7 @@ export default function Footer() {
               <FacebookIcon size={20} />
             </a>
             <a
-              href="mailto:hello@sandyhornephoto.com.au"
+              href="mailto:hello@sandyhornephoto.com"
               aria-label="Email Sandy"
               className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors"
             >
@@ -76,7 +76,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-xs text-[#f7f4ef]/30">Based in Australia</p>
-          <p className="text-xs text-[#f7f4ef]/30 mt-1">sandyhornephoto.com.au</p>
+          <p className="text-xs text-[#f7f4ef]/30 mt-1">sandyhornephoto.com</p>
         </div>
       </div>
 

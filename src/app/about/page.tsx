@@ -1,0 +1,197 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import NewsletterSignup from "@/components/NewsletterSignup";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Sandy Horne — an Australian bird and nature photographer based in Australia, with over 15 years capturing the wild.",
+};
+
+const stats = [
+  { value: "15+", label: "Years behind the lens" },
+  { value: "200+", label: "Bird species photographed" },
+  { value: "50+", label: "Locations explored" },
+  { value: "12", label: "Exhibition appearances" },
+];
+
+export default function AboutPage() {
+  return (
+    <div className="bg-[#f7f4ef]">
+      {/* ── Page Header ─────────────────────────────────────────────── */}
+      <div className="pt-32 pb-12 px-6 text-center">
+        <p className="text-[10px] tracking-[0.4em] uppercase font-sans text-[#4a7a3c] mb-3">
+          The Photographer
+        </p>
+        <h1 className="font-serif text-5xl lg:text-6xl text-[#1e3520]">About Sandy</h1>
+      </div>
+
+      {/* ── Two-column Bio ───────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left: Portrait */}
+          <div className="relative">
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                src="/images/profile/sandy-contemplative.png"
+                alt="Sandy Horne — Australian nature photographer"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+            {/* Decorative frame */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#4a7a3c]/30 -z-10" />
+          </div>
+
+          {/* Right: Bio */}
+          <div className="lg:pt-6">
+            <h2 className="font-serif text-3xl lg:text-4xl text-[#1e3520] mb-6 leading-snug">
+              Finding stillness in the wild places of Australia
+            </h2>
+
+            <div className="space-y-5 text-[#3a4e3c] font-sans text-[15px] leading-relaxed">
+              <p>
+                I&apos;m Sandy Horne — a nature photographer based in Australia,
+                with a deep love for birds and the landscapes they call home.
+                For over 15 years I&apos;ve been venturing into the bush before
+                dawn, waiting in mangroves, and lying in tall grass with nothing
+                but patience and a long lens.
+              </p>
+              <p>
+                My work is shaped by a quiet philosophy: the best wildlife
+                images come from understanding behaviour, not from chasing
+                shots. Whether it&apos;s a kingfisher hovering over a creek or a
+                wedge-tailed eagle riding a thermal at sunrise, I believe every
+                frame should feel earned.
+              </p>
+              <p>
+                I shoot across Australia — from the tropical wetlands of
+                Kakadu and the rainforests of the Daintree, to the alpine
+                country of Victoria and the coastal heaths of the south-east.
+                Each ecosystem holds its own light, its own rhythms, and its own
+                cast of extraordinary birds.
+              </p>
+              <p>
+                My images have been exhibited nationally and published in
+                Australian wildlife and conservation publications. When
+                I&apos;m not in the field, I offer photography workshops for
+                anyone who wants to slow down and truly see what&apos;s out there.
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/gallery"
+                className="bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#4a7a3c] transition-colors duration-300"
+              >
+                View Gallery
+              </Link>
+              <Link
+                href="/contact"
+                className="border border-[#1e3520] text-[#1e3520] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#1e3520] hover:text-[#f7f4ef] transition-all duration-300"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats Strip ─────────────────────────────────────────────── */}
+      <section className="bg-[#1e3520] py-16 px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+          {stats.map(({ value, label }) => (
+            <div key={label}>
+              <p className="font-serif text-4xl lg:text-5xl text-[#f7f4ef] mb-2">{value}</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase font-sans text-[#f7f4ef]/40 leading-snug">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Profile Gallery ──────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <div className="text-center mb-12">
+          <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">
+            Behind the Camera
+          </p>
+          <h2 className="font-serif text-3xl lg:text-4xl text-[#1e3520]">In the Field</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src="/images/profile/Profile_round_sml.png"
+              alt="Sandy Horne portrait"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src="https://picsum.photos/seed/sh-about-field/800/800"
+              alt="Sandy in the field photographing birds"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src="/images/profile/Profile_round_mono.png"
+              alt="Sandy Horne black and white portrait"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Gear ────────────────────────────────────────────────────── */}
+      <section className="bg-[#ede8df] py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">
+            Equipment
+          </p>
+          <h2 className="font-serif text-3xl text-[#1e3520] mb-8">What I Shoot With</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            {[
+              {
+                category: "Bodies",
+                items: ["Canon EOS R5", "Canon EOS R7 (crop backup)"],
+              },
+              {
+                category: "Lenses",
+                items: ["Canon RF 100–500mm f/4.5–7.1", "Canon RF 600mm f/4"],
+              },
+              {
+                category: "Support",
+                items: ["Gitzo GT3543LS tripod", "Wimberley WH-200 head"],
+              },
+            ].map(({ category, items }) => (
+              <div key={category} className="bg-[#f7f4ef] p-5">
+                <h3 className="text-[10px] tracking-[0.2em] uppercase font-sans text-[#4a7a3c] mb-3">
+                  {category}
+                </h3>
+                <ul className="space-y-1.5 text-sm text-[#3a4e3c] font-sans">
+                  {items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Newsletter ───────────────────────────────────────────────── */}
+      <NewsletterSignup />
+    </div>
+  );
+}

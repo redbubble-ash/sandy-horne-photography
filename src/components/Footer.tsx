@@ -82,9 +82,7 @@ export default function Footer() {
 
       <div className="border-t border-[#f7f4ef]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-[#f7f4ef]/25">
-          <p>
-            © {new Date().getFullYear()} Sandy Horne Photography. All rights reserved.
-          </p>
+          <p>Copyright Sandy Horne {new Date().getFullYear()}</p>
           <p>All images copyright Sandy Horne</p>
         </div>
       </div>

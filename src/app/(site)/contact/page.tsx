@@ -4,7 +4,6 @@ import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../../keystatic.config";
 import ContactForm from "@/components/ContactForm";
-import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -100,7 +99,6 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      <NewsletterSignup />
     </div>
   );
 }

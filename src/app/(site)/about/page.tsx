@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../../keystatic.config";
-import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "About",
@@ -124,7 +123,6 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <NewsletterSignup />
     </div>
   );
 }

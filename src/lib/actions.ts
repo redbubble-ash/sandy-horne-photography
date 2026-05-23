@@ -49,24 +49,3 @@ export async function submitContactForm(
 
   return { success: true };
 }
-
-export type NewsletterState = {
-  success: boolean;
-  error?: string;
-};
-
-export async function subscribeNewsletter(
-  _prev: NewsletterState,
-  formData: FormData
-): Promise<NewsletterState> {
-  const email = formData.get("email") as string;
-
-  if (!email) {
-    return { success: false, error: "Please enter your email address." };
-  }
-
-  // TODO: wire up to Mailchimp / ConvertKit / Resend Audiences
-  console.log("Newsletter signup:", email);
-
-  return { success: true };
-}

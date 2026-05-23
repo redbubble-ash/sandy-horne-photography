@@ -4,7 +4,6 @@ import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../keystatic.config";
 import type { GalleryPhoto, GalleryCategory } from "@/lib/images";
 import LightboxGallery from "@/components/LightboxGallery";
-import NewsletterSignup from "@/components/NewsletterSignup";
 
 // Regenerate page every hour so the hero image rotates
 export const revalidate = 3600;
@@ -121,7 +120,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <NewsletterSignup />
     </>
   );
 }

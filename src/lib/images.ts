@@ -3,7 +3,8 @@ export type GalleryCategory =
   | "people"
   | "animals"
   | "landscapes"
-  | "flora";
+  | "flora"
+  | "monochrome";
 
 export type GalleryPhoto = {
   id: string;

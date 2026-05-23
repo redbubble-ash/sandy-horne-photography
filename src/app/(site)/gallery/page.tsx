@@ -20,6 +20,7 @@ const categories: { value: GalleryCategory | "all"; label: string }[] = [
   { value: "animals", label: "Animals" },
   { value: "landscapes", label: "Landscapes" },
   { value: "flora", label: "Flora" },
+  { value: "monochrome", label: "Monochrome" },
 ];
 
 export default async function GalleryPage() {
@@ -77,7 +78,7 @@ export default async function GalleryPage() {
             <LightboxGallery photos={photos} />
           </TabsContent>
 
-          {(["birds", "people", "animals", "landscapes", "flora"] as GalleryCategory[]).map(
+          {(["birds", "people", "animals", "landscapes", "flora", "monochrome"] as GalleryCategory[]).map(
             (cat) => (
               <TabsContent key={cat} value={cat}>
                 <LightboxGallery photos={byCategory(cat)} />

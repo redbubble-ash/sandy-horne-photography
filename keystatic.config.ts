@@ -123,6 +123,7 @@ export default config({
             { label: "Animals", value: "animals" },
             { label: "Landscapes", value: "landscapes" },
             { label: "Flora", value: "flora" },
+            { label: "Monochrome", value: "monochrome" },
           ],
           defaultValue: "birds",
         }),

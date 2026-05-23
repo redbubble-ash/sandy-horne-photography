@@ -109,9 +109,9 @@ export default async function AboutPage() {
           <h2 className="font-serif text-3xl text-[#1e3520] mb-8">What I Shoot With</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
             {[
-              { category: "Bodies", items: ["Canon EOS R5", "Canon EOS R7 (crop backup)"] },
-              { category: "Lenses", items: ["Canon RF 100–500mm f/4.5–7.1", "Canon RF 600mm f/4"] },
-              { category: "Support", items: ["Gitzo GT3543LS tripod", "Wimberley WH-200 head"] },
+              { category: "Bodies", items: ["Canon R6", "Canon RP"] },
+              { category: "Lenses", items: ["Canon RF 100-500mm f4.5-7.1L IS USM", "Canon EF 16-35mm f/4L IS USM wide-angle", "Canon EF100mm f/2.8L macro IS USM", "Canon 2x extender"] },
+              { category: "Support", items: ["Velbon Videomate 538 tripod", "Hoya 77mm Circular polarizer filter", "Swift Enduro camera trap"] },
             ].map(({ category, items }) => (
               <div key={category} className="bg-[#f7f4ef] p-5">
                 <h3 className="text-[10px] tracking-[0.2em] uppercase font-sans text-[#4a7a3c] mb-3">{category}</h3>

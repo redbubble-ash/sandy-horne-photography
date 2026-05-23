@@ -6,13 +6,25 @@ import type { GalleryPhoto, GalleryCategory } from "@/lib/images";
 import LightboxGallery from "@/components/LightboxGallery";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
+// Regenerate page every hour so the hero image rotates
+export const revalidate = 3600;
+
 const reader = createReader(process.cwd(), keystaticConfig);
+
+const heroImages = [
+  "/images/hero/hero-1.jpg",
+  "/images/hero/hero-2.jpg",
+  "/images/hero/hero-3.jpg",
+  "/images/hero/hero-4.jpg",
+];
 
 export default async function HomePage() {
   const [home, galleryEntries] = await Promise.all([
     reader.singletons.home.read(),
     reader.collections.gallery.all(),
   ]);
+
+  const heroImage = heroImages[new Date().getHours() % heroImages.length];
 
   const heroTagline =
     home?.heroTagline ??
@@ -39,8 +51,8 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://picsum.photos/seed/sh-hero-main/1920/1080"
-          alt="Australian bird in natural habitat"
+          src={heroImage}
+          alt="Australian nature photography by Sandy Horne"
           fill
           priority
           className="object-cover object-center"

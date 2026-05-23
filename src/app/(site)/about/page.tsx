@@ -74,7 +74,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#1e3520] py-16 px-6">
+      <section className="bg-[#0F4C81] py-16 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
           {stats.map(({ value, label }) => (
             <div key={label}>

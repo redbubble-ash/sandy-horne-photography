@@ -1,5 +1,12 @@
 "use server";
 
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const TO_EMAIL = "horne@senet.com.au";
+const FROM_EMAIL = "noreply@sandyhornephoto.com";
+
 export type ContactFormState = {
   success: boolean;
   error?: string;
@@ -23,8 +30,22 @@ export async function submitContactForm(
     return { success: false, error: "Please enter a valid email address." };
   }
 
-  // TODO: wire up to Resend / SendGrid / Nodemailer
-  console.log("Contact form submission:", { name, email, subject, message });
+  const subjectLine = subject
+    ? `Sandy Horne Photography – ${subject}`
+    : "Sandy Horne Photography – New enquiry";
+
+  const { error } = await resend.emails.send({
+    from: FROM_EMAIL,
+    to: TO_EMAIL,
+    replyTo: email,
+    subject: subjectLine,
+    text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject || "—"}\n\n${message}`,
+  });
+
+  if (error) {
+    console.error("Resend error:", error);
+    return { success: false, error: "Sorry, your message could not be sent. Please try again or email directly." };
+  }
 
   return { success: true };
 }

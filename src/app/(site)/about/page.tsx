@@ -91,12 +91,15 @@ export default async function AboutPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { src: "/images/profile/Profile_round_sml.png", alt: "Sandy Horne portrait" },
+            { src: "/images/profile/Profile_round_sml.png", alt: "Sandy Horne portrait", credit: "Photo: Simon Ashfield-Smith" },
             { src: "https://picsum.photos/seed/sh-about-field/800/800", alt: "Sandy in the field" },
             { src: "/images/profile/Profile_round_mono.png", alt: "Sandy Horne black and white portrait" },
-          ].map(({ src, alt }) => (
-            <div key={src} className="relative aspect-square overflow-hidden">
+          ].map(({ src, alt, credit }) => (
+            <div key={src} className="relative aspect-square overflow-hidden group">
               <Image src={src} alt={alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+              {credit && (
+                <p className="absolute bottom-2 right-2 text-[9px] text-white/60 font-sans">{credit}</p>
+              )}
             </div>
           ))}
         </div>

@@ -57,7 +57,7 @@ export default async function HomePage() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F4C81]/60 via-[#0F4C81]/40 to-[#0F4C81]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <p className="text-[#f7f4ef]/70 text-xs tracking-[0.4em] uppercase font-sans mb-6">
             Australian Bird & Nature Photography

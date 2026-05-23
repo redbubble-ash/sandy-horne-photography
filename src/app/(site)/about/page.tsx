@@ -90,15 +90,10 @@ export default async function AboutPage() {
           <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">Behind the Camera</p>
           <h2 className="font-serif text-3xl lg:text-4xl text-[#1e3520]">In the Field</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {[
-            { src: "/images/profile/Profile_round_sml.png", alt: "Sandy Horne portrait" },
-            { src: "/images/profile/Profile_round_mono.png", alt: "Sandy Horne black and white portrait" },
-          ].map(({ src, alt }) => (
-            <div key={src} className="relative aspect-square overflow-hidden">
-              <Image src={src} alt={alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, 50vw" />
-            </div>
-          ))}
+        <div className="max-w-sm mx-auto">
+          <div className="relative aspect-square overflow-hidden">
+            <Image src="/images/profile/Profile_round_sml.png" alt="Sandy Horne portrait" fill className="object-cover" sizes="(max-width: 640px) 100vw, 384px" />
+          </div>
         </div>
       </section>
 

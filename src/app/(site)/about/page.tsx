@@ -33,7 +33,7 @@ export default async function AboutPage() {
         <p className="text-[10px] tracking-[0.4em] uppercase font-sans text-[#4a7a3c] mb-3">
           The Photographer
         </p>
-        <h1 className="font-serif text-5xl lg:text-6xl text-[#1e3520]">About Sandy</h1>
+        <h1 className="font-serif text-5xl lg:text-6xl text-[#0F4C81]">About Sandy</h1>
       </div>
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
@@ -54,7 +54,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="lg:pt-6">
-            <h2 className="font-serif text-3xl lg:text-4xl text-[#1e3520] mb-6 leading-snug">
+            <h2 className="font-serif text-3xl lg:text-4xl text-[#0F4C81] mb-6 leading-snug">
               {heading}
             </h2>
             <div className="space-y-5 text-[#3a4e3c] font-sans text-[15px] leading-relaxed">
@@ -63,10 +63,10 @@ export default async function AboutPage() {
               ))}
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/gallery" className="bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#4a7a3c] transition-colors duration-300">
+              <Link href="/gallery" className="bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#4a7a3c] transition-colors duration-300">
                 View Gallery
               </Link>
-              <Link href="/contact" className="border border-[#1e3520] text-[#1e3520] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#1e3520] hover:text-[#f7f4ef] transition-all duration-300">
+              <Link href="/contact" className="border border-[#0F4C81] text-[#0F4C81] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#0F4C81] hover:text-[#f7f4ef] transition-all duration-300">
                 Get in Touch
               </Link>
             </div>
@@ -88,7 +88,7 @@ export default async function AboutPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
           <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">Behind the Camera</p>
-          <h2 className="font-serif text-3xl lg:text-4xl text-[#1e3520]">In the Field</h2>
+          <h2 className="font-serif text-3xl lg:text-4xl text-[#0F4C81]">In the Field</h2>
         </div>
         <div className="max-w-sm mx-auto">
           <div className="relative aspect-square overflow-hidden">
@@ -100,7 +100,7 @@ export default async function AboutPage() {
       <section className="bg-[#ede8df] py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">Equipment</p>
-          <h2 className="font-serif text-3xl text-[#1e3520] mb-8">What I Shoot With</h2>
+          <h2 className="font-serif text-3xl text-[#0F4C81] mb-8">What I Shoot With</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
             {[
               { category: "Bodies", items: ["Canon R6", "Canon RP"] },

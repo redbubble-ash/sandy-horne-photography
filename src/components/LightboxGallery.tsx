@@ -46,7 +46,7 @@ export default function LightboxGallery({ photos }: { photos: GalleryPhoto[] }) 
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-[#1e3520]/0 group-hover:bg-[#1e3520]/50 transition-all duration-500 flex items-end pointer-events-none">
+            <div className="absolute inset-0 bg-[#0F4C81]/0 group-hover:bg-[#0F4C81]/50 transition-all duration-500 flex items-end pointer-events-none">
               <div className="p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
                 <p className="font-serif text-base text-[#f7f4ef]">{photo.title}</p>
               </div>

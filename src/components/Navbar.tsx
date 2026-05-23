@@ -39,7 +39,7 @@ export default function Navbar() {
         <Link href="/" className="group">
           <span
             className={`block font-serif text-xl lg:text-2xl tracking-wide transition-colors leading-none ${
-              isTransparent ? "text-[#f7f4ef]" : "text-[#1e3520]"
+              isTransparent ? "text-[#f7f4ef]" : "text-[#0F4C81]"
             }`}
           >
             Sandy Horne
@@ -65,7 +65,7 @@ export default function Navbar() {
                 pathname === href
                   ? isTransparent
                     ? "border-b border-white/60 pb-0.5"
-                    : "border-b border-[#4a7a3c] pb-0.5 text-[#1e3520]"
+                    : "border-b border-[#4a7a3c] pb-0.5 text-[#0F4C81]"
                   : ""
               }`}
             >
@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           className={`md:hidden p-2 transition-colors ${
-            isTransparent ? "text-[#f7f4ef]" : "text-[#1e3520]"
+            isTransparent ? "text-[#f7f4ef]" : "text-[#0F4C81]"
           }`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
@@ -95,7 +95,7 @@ export default function Navbar() {
               href={href}
               onClick={() => setOpen(false)}
               className={`text-xs tracking-[0.2em] uppercase font-sans font-medium transition-colors hover:text-[#4a7a3c] ${
-                pathname === href ? "text-[#1e3520]" : "text-[#1a2e1c]"
+                pathname === href ? "text-[#0F4C81]" : "text-[#1a2e1c]"
               }`}
             >
               {label}

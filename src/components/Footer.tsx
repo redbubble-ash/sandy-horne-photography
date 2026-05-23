@@ -14,7 +14,7 @@ export default async function Footer() {
   const location = settings?.location ?? "Australia";
 
   return (
-    <footer className="bg-[#1e3520] text-[#f7f4ef]/80">
+    <footer className="bg-[#0F4C81] text-[#f7f4ef]/80">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
           <p className="font-serif text-xl text-[#f7f4ef] mb-1 leading-none">Sandy Horne</p>

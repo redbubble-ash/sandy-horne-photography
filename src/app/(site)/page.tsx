@@ -57,7 +57,7 @@ export default async function HomePage() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1e3520]/60 via-[#1e3520]/40 to-[#1e3520]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F4C81]/60 via-[#0F4C81]/40 to-[#0F4C81]/70" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <p className="text-[#f7f4ef]/70 text-xs tracking-[0.4em] uppercase font-sans mb-6">
             Australian Bird & Nature Photography
@@ -70,7 +70,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/gallery"
-            className="inline-block border border-[#f7f4ef]/60 text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#f7f4ef] hover:text-[#1e3520] transition-all duration-300"
+            className="inline-block border border-[#f7f4ef]/60 text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#f7f4ef] hover:text-[#0F4C81] transition-all duration-300"
           >
             Explore Gallery
           </Link>
@@ -89,13 +89,13 @@ export default async function HomePage() {
               <p className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#4a7a3c] mb-3">
                 Selected Work
               </p>
-              <h2 className="font-serif text-4xl lg:text-5xl text-[#1e3520]">From the Field</h2>
+              <h2 className="font-serif text-4xl lg:text-5xl text-[#0F4C81]">From the Field</h2>
             </div>
             <LightboxGallery photos={featuredPhotos} />
             <div className="text-center mt-14">
               <Link
                 href="/gallery"
-                className="inline-block bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300"
+                className="inline-block bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300"
               >
                 View Full Gallery
               </Link>
@@ -105,7 +105,7 @@ export default async function HomePage() {
       )}
 
       {/* Quote Strip */}
-      <section className="bg-[#1e3520] py-24 px-6">
+      <section className="bg-[#0F4C81] py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#f7f4ef] leading-relaxed italic">
             &ldquo;{quote}&rdquo;

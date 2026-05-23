@@ -26,7 +26,7 @@ export default async function ContactPage() {
         <p className="text-[10px] tracking-[0.4em] uppercase font-sans text-[#4a7a3c] mb-3">
           Get in Touch
         </p>
-        <h1 className="font-serif text-5xl lg:text-6xl text-[#1e3520] mb-5">Contact</h1>
+        <h1 className="font-serif text-5xl lg:text-6xl text-[#0F4C81] mb-5">Contact</h1>
         <p className="text-sm text-[#6b7869] font-sans max-w-md mx-auto leading-relaxed">
           For print enquiries, licensing, workshop bookings, or just to say
           hello — I&apos;d love to hear from you.
@@ -35,7 +35,7 @@ export default async function ContactPage() {
 
       <section className="max-w-6xl mx-auto px-6 lg:px-8 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
         <div className="lg:col-span-2">
-          <h2 className="font-serif text-2xl text-[#1e3520] mb-8">Send a Message</h2>
+          <h2 className="font-serif text-2xl text-[#0F4C81] mb-8">Send a Message</h2>
           <ContactForm />
         </div>
 
@@ -49,7 +49,7 @@ export default async function ContactPage() {
                 <Mail size={16} className="mt-0.5 text-[#4a7a3c] shrink-0" />
                 <a
                   href={`mailto:${email}`}
-                  className="text-sm text-[#3a4e3c] font-sans hover:text-[#1e3520] transition-colors break-all"
+                  className="text-sm text-[#3a4e3c] font-sans hover:text-[#0F4C81] transition-colors break-all"
                 >
                   {email}
                 </a>
@@ -70,7 +70,7 @@ export default async function ContactPage() {
                 href={`https://instagram.com/${instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#3a4e3c] font-sans hover:text-[#1e3520] transition-colors group"
+                className="flex items-center gap-3 text-sm text-[#3a4e3c] font-sans hover:text-[#0F4C81] transition-colors group"
               >
                 <InstagramIcon size={16} />
                 @{instagram}
@@ -79,7 +79,7 @@ export default async function ContactPage() {
                 href={facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#3a4e3c] font-sans hover:text-[#1e3520] transition-colors group"
+                className="flex items-center gap-3 text-sm text-[#3a4e3c] font-sans hover:text-[#0F4C81] transition-colors group"
               >
                 <FacebookIcon size={16} />
                 Sandy Horne Photography

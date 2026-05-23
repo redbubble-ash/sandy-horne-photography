@@ -12,13 +12,13 @@ export default function ContactForm() {
   if (state.success) {
     return (
       <div className="border border-[#4a7a3c] bg-[#4a7a3c]/10 p-8 text-center">
-        <p className="font-serif text-2xl text-[#1e3520] mb-2">Thank you!</p>
+        <p className="font-serif text-2xl text-[#0F4C81] mb-2">Thank you!</p>
         <p className="text-sm text-[#3a4e3c] font-sans">
           Your message has been received. I&apos;ll be in touch within a couple of days.
         </p>
         <Link
           href="/"
-          className="inline-block mt-6 text-xs tracking-[0.2em] uppercase font-sans text-[#4a7a3c] hover:text-[#1e3520] transition-colors"
+          className="inline-block mt-6 text-xs tracking-[0.2em] uppercase font-sans text-[#4a7a3c] hover:text-[#0F4C81] transition-colors"
         >
           ← Back to Home
         </Link>
@@ -108,7 +108,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="bg-[#1e3520] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300 disabled:opacity-60"
+        className="bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300 disabled:opacity-60"
       >
         {pending ? "Sending…" : "Send Message"}
       </button>

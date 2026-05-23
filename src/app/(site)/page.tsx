@@ -95,7 +95,7 @@ export default async function HomePage() {
             <div className="text-center mt-14">
               <Link
                 href="/gallery"
-                className="inline-block bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#4a7a3c] transition-colors duration-300"
+                className="inline-block bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.25em] uppercase font-sans px-10 py-4 hover:bg-[#1a6aad] transition-colors duration-300"
               >
                 View Full Gallery
               </Link>

@@ -63,7 +63,7 @@ export default async function AboutPage() {
               ))}
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/gallery" className="bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#4a7a3c] transition-colors duration-300">
+              <Link href="/gallery" className="bg-[#0F4C81] text-[#f7f4ef] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#1a6aad] transition-colors duration-300">
                 View Gallery
               </Link>
               <Link href="/contact" className="border border-[#0F4C81] text-[#0F4C81] text-xs tracking-[0.2em] uppercase font-sans px-8 py-3.5 hover:bg-[#0F4C81] hover:text-[#f7f4ef] transition-all duration-300">

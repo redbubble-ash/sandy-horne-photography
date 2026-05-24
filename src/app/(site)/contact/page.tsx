@@ -28,8 +28,7 @@ export default async function ContactPage() {
         </p>
         <h1 className="font-serif text-5xl lg:text-6xl text-[#0F4C81] mb-5">Contact</h1>
         <p className="text-sm text-[#6b7869] font-sans max-w-md mx-auto leading-relaxed">
-          For print enquiries, licensing, workshop bookings, or just to say
-          hello — I&apos;d love to hear from you.
+          Please use this form if you&apos;d like to get in touch with me.
         </p>
       </div>
 

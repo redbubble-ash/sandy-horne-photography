@@ -14,7 +14,6 @@ const heroImages = [
   "/images/hero/hero-1.jpg",
   "/images/hero/hero-2.jpg",
   "/images/hero/hero-3.jpg",
-  "/images/hero/hero-4.jpg",
 ];
 
 export default async function HomePage() {

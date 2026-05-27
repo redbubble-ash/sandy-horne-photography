@@ -28,6 +28,8 @@ export default function ContactForm() {
 
   return (
     <form action={action} className="space-y-5">
+      {/* Honeypot — hidden from humans, bots fill it in */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: "none" }} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label

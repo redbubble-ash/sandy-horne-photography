@@ -16,6 +16,9 @@ export async function submitContactForm(
   _prev: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  const honeypot = formData.get("website") as string;
+  if (honeypot) return { success: true };
+
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const subject = formData.get("subject") as string;

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../keystatic.config";
@@ -8,7 +7,6 @@ const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Footer() {
   const settings = await reader.singletons.settings.read();
-  const email = settings?.email ?? "hello@sandyhornephoto.com";
   const instagram = settings?.instagram ?? "sandyhornephoto";
   const facebook = settings?.facebook ?? "https://facebook.com/sandyhornephoto";
   const location = settings?.location ?? "Australia";
@@ -53,9 +51,6 @@ export default async function Footer() {
             </a>
             <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
               <FacebookIcon size={20} />
-            </a>
-            <a href={`mailto:${email}`} aria-label="Email Sandy" className="text-[#f7f4ef]/60 hover:text-[#f7f4ef] transition-colors">
-              <Mail size={20} />
             </a>
           </div>
           <p className="text-xs text-[#f7f4ef]/30">Based in {location}</p>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../../keystatic.config";
@@ -15,7 +15,6 @@ const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function ContactPage() {
   const settings = await reader.singletons.settings.read();
-  const email = settings?.email ?? "hello@sandyhornephoto.com";
   const instagram = settings?.instagram ?? "sandyhornephoto";
   const facebook = settings?.facebook ?? "https://facebook.com/sandyhornephoto";
   const location = settings?.location ?? "Australia";
@@ -44,15 +43,6 @@ export default async function ContactPage() {
               Contact Details
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Mail size={16} className="mt-0.5 text-[#4a7a3c] shrink-0" />
-                <a
-                  href={`mailto:${email}`}
-                  className="text-sm text-[#3a4e3c] font-sans hover:text-[#0F4C81] transition-colors break-all"
-                >
-                  {email}
-                </a>
-              </div>
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="mt-0.5 text-[#4a7a3c] shrink-0" />
                 <p className="text-sm text-[#3a4e3c] font-sans">{location}</p>
@@ -91,8 +81,7 @@ export default async function ContactPage() {
               Response Time
             </p>
             <p className="text-sm text-[#3a4e3c] font-sans leading-relaxed">
-              I aim to respond to all enquiries within 2 business days. For
-              urgent matters please email directly.
+              I aim to respond to all enquiries within 2 business days.
             </p>
           </div>
         </div>

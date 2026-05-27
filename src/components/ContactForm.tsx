@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { submitContactForm } from "@/lib/actions";
 
 export default function ContactForm() {
@@ -103,6 +104,12 @@ export default function ContactForm() {
         />
       </div>
 
+      <div
+        className="cf-turnstile"
+        data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        data-theme="light"
+      />
+
       {state.error && (
         <p className="text-sm text-red-700 font-sans">{state.error}</p>
       )}
@@ -115,5 +122,6 @@ export default function ContactForm() {
         {pending ? "Sending…" : "Send Message"}
       </button>
     </form>
+    <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
   );
 }

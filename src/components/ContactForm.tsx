@@ -28,6 +28,7 @@ export default function ContactForm() {
   }
 
   return (
+    <>
     <form action={action} className="space-y-5">
       {/* Honeypot — hidden from humans, bots fill it in */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: "none" }} />
@@ -123,5 +124,6 @@ export default function ContactForm() {
       </button>
     </form>
     <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+    </>
   );
 }
